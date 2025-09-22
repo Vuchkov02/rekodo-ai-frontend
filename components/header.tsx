@@ -56,7 +56,6 @@ export function Header() {
         </nav>
       </div>
 
-      {/* Scroll progress bar */}
       <div
         className="absolute bottom-0 left-0 h-1 bg-secondary transition-all duration-300"
         style={{width: `${scrollProgress}%`}}

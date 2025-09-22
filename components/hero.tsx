@@ -12,7 +12,6 @@ export function Hero({ onGeneratePlaylist, isGenerating }: HeroProps) {
     <section className="relative py-16 sm:py-24">
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        {/* Hero content */}
         <div className="text-center mb-12">
           <div className="space-y-6 mb-12">
             <h2 className="text-4xl sm:text-6xl lg:text-7xl font-bold">
@@ -31,7 +30,6 @@ export function Hero({ onGeneratePlaylist, isGenerating }: HeroProps) {
               Describe your mood, activity, or music preference and get the perfect AI-curated playlist in seconds
             </p>
 
-            {/* Stats */}
             <div className="flex flex-wrap justify-center gap-6 mt-8">
               {[
                 { number: "10M+", label: "Songs" },
@@ -50,12 +48,10 @@ export function Hero({ onGeneratePlaylist, isGenerating }: HeroProps) {
           </div>
         </div>
 
-        {/* Prompt input */}
         <div>
           <PromptInput onSubmit={onGeneratePlaylist} isLoading={isGenerating} />
         </div>
 
-        {/* Feature highlights */}
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
           {[
             {

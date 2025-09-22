@@ -10,7 +10,7 @@
   }
 
   body {
-    background-color: #f9f28d;
+    background-color: #c2dfc9;
     color: #000000;
     font-family: var(--font-fredoka);
     font-weight: 300;
@@ -102,7 +102,6 @@
     box-shadow: 2px 2px 0 #000000;
   }
 
-  /* Cool custom animations */
   @keyframes float-gentle {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-10px); }
@@ -131,7 +130,6 @@
     animation: shake 0.5s ease-in-out;
   }
 
-  /* Gradient text effect */
   .gradient-text {
     background: linear-gradient(45deg, #8B5CF6, #FFCC00, #8B5CF6);
     background-size: 200% 200%;
@@ -146,7 +144,6 @@
     50% { background-position: 100% 50%; }
   }
 
-  /* Consistent hover utilities */
   .hover-lift {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
@@ -165,7 +162,6 @@
     box-shadow: 1px 1px 0 #000000;
   }
 
-  /* Ensure border-3 works properly */
   .border-3 {
     border-width: 3px;
   }

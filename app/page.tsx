@@ -29,9 +29,11 @@ export default function Home() {
       <Header />
 
       <main>
-        <Hero onGeneratePlaylist={handleGeneratePlaylist} isGenerating={isGenerating} />
+        <Hero
+          onGeneratePlaylist={handleGeneratePlaylist}
+          isGenerating={isGenerating}
+        />
 
-        {/* Generated Playlists Section */}
         {(playlists.length > 0 || isGenerating) && (
           <section className="py-12 sm:py-20">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -46,9 +48,7 @@ export default function Home() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {isGenerating && (
-                  <PlaylistSkeleton />
-                )}
+                {isGenerating && <PlaylistSkeleton />}
                 {playlists.map((playlist) => (
                   <PlaylistCard key={playlist.id} playlist={playlist} />
                 ))}
@@ -57,7 +57,6 @@ export default function Home() {
           </section>
         )}
 
-        {/* Empty State */}
         {playlists.length === 0 && !isGenerating && (
           <section className="py-20">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -81,14 +80,14 @@ export default function Home() {
                   Ready to discover your new favorite songs?
                 </h3>
                 <p className="text-black/60 max-w-md mx-auto">
-                  Tell me about your mood, activity, or favorite genre and I'll create the perfect soundtrack
+                  Tell me about your mood, activity, or favorite genre and I'll
+                  create the perfect soundtrack
                 </p>
               </div>
             </div>
           </section>
         )}
 
-        {/* How It Works */}
         <section id="how-it-works" className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-16">
@@ -101,23 +100,25 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Steps */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {[
                 {
                   step: "1",
                   title: "Tell Me Your Vibe",
-                  description: "Describe your mood, activity, or music preference",
+                  description:
+                    "Describe your mood, activity, or music preference",
                 },
                 {
                   step: "2",
                   title: "AI Magic Happens",
-                  description: "I analyze millions of songs to find your perfect matches",
+                  description:
+                    "I analyze millions of songs to find your perfect matches",
                 },
                 {
                   step: "3",
                   title: "Enjoy Your Playlist",
-                  description: "Get a personalized playlist ready to play instantly",
+                  description:
+                    "Get a personalized playlist ready to play instantly",
                 },
               ].map((panel) => (
                 <div key={panel.step} className="panel relative">
@@ -138,7 +139,6 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Examples */}
             <div className="mt-16 text-center">
               <h3 className="text-xl font-bold text-black mb-6">
                 Try these example prompts:
@@ -149,7 +149,7 @@ export default function Home() {
                   "Epic workout energy",
                   "Study focus beats",
                   "Road trip sing-alongs",
-                  "Dancing in my room"
+                  "Dancing in my room",
                 ].map((example) => (
                   <div
                     key={example}
@@ -163,9 +163,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="relative py-8 border-t-3 border-black bg-white" style={{borderRadius: "16px 0 0 0"}}>
-          {/* Orange progress bar - always visible */}
+        <footer
+          className="relative py-8 border-t-3 border-black bg-white"
+          style={{ borderRadius: "16px 0 0 0" }}
+        >
           <div className="absolute top-0 left-0 w-full h-1 bg-secondary" />
 
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
