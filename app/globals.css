@@ -7,11 +7,36 @@
     --font-bungee: 'Bungee', cursive;
     --font-fredoka: 'Fredoka', sans-serif;
     --font-righteous: 'Righteous', cursive;
+    --font-bangers: 'Bangers', cursive;
+
+    /* Primary Colors */
+    --bg-primary: #c2dfc9;
+    --bg-dark: rgb(26, 31, 28);
+    --bg-card: #febe10;
+    --bg-secondary: #febe10;
+
+    /* Text Colors */
+    --text-primary: #000000;
+    --text-secondary: #000000;
+    --text-muted: #000000;
+    --text-dark: #000000;
+
+    /* UI Elements */
+    --border: rgb(26, 31, 28);
+    --divider: rgba(26, 31, 28, 0.3);
+    --shadow: rgba(26, 31, 28, 0.5);
+
+    /* Accent Colors */
+    --accent-primary: #c2dfc9;
+    --accent-secondary: #febe10;
+    --success: #6ab46a;
+    --warning: #f4a261;
+    --error: #e76f51;
   }
 
   body {
-    background-color: #c2dfc9;
-    color: #000000;
+    background-color: var(--bg-primary);
+    color: var(--text-dark);
     font-family: var(--font-fredoka);
     font-weight: 300;
     min-height: 100vh;
@@ -47,59 +72,62 @@
   .btn {
     font-weight: 600;
     padding: 0.75rem 1.5rem;
-    border: 3px solid #000000;
-    background: #FFCC00;
-    color: #000000;
+    border: 3px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--text-dark);
     border-radius: 12px 0 12px 0;
     transition: transform 0.2s ease, background-color 0.2s ease;
   }
 
   .btn:hover {
-    background: #8B5CF6;
-    color: #FFFFFF;
+    background: var(--bg-dark);
+    color: var(--bg-secondary);
     transform: translate(-2px, -2px);
-    box-shadow: 2px 2px 0 #000000;
+    box-shadow: 2px 2px 0 var(--shadow);
   }
 
   .card {
-    background: #FFFFFF;
-    border: 3px solid #000000;
+    background: var(--bg-card);
+    border: 3px solid var(--border);
     border-radius: 16px 0 16px 0;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: var(--text-primary);
   }
 
   .card:hover {
     transform: translate(-3px, -3px);
-    box-shadow: 3px 3px 0 #000000;
+    box-shadow: 3px 3px 0 var(--shadow);
   }
 
   .input {
     width: 100%;
     padding: 0.75rem 1rem;
-    background: #FFFFFF;
-    border: 3px solid #000000;
+    background: var(--bg-secondary);
+    border: 3px solid var(--border);
     border-radius: 10px 0 10px 0;
     transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    color: var(--text-primary);
   }
 
   .input:focus {
     outline: none;
-    border-color: #8B5CF6;
+    border-color: var(--accent-primary);
     transform: translate(-1px, -1px);
-    box-shadow: 1px 1px 0 #000000;
+    box-shadow: 1px 1px 0 var(--shadow);
   }
 
   .panel {
-    background: #FFFFFF;
-    border: 3px solid #000000;
+    background: var(--bg-card);
+    border: 3px solid var(--border);
     border-radius: 20px 0 20px 0;
     padding: 1.5rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: var(--text-primary);
   }
 
   .panel:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 2px 2px 0 #000000;
+    box-shadow: 2px 2px 0 var(--shadow);
   }
 
   @keyframes float-gentle {
@@ -131,7 +159,7 @@
   }
 
   .gradient-text {
-    background: linear-gradient(45deg, #8B5CF6, #FFCC00, #8B5CF6);
+    background: linear-gradient(45deg, var(--bg-dark), var(--accent-primary), var(--bg-secondary));
     background-size: 200% 200%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -144,13 +172,47 @@
     50% { background-position: 100% 50%; }
   }
 
+  @keyframes subtle-pulse {
+    0%, 100% {
+      transform: rotate(-2deg) scale(1);
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      transform: rotate(-2deg) scale(1.02);
+      filter: hue-rotate(10deg);
+    }
+  }
+
+  @keyframes vibe-wave {
+    0% {
+      transform: skewY(-3deg) scaleY(1);
+      text-shadow:
+        4px 4px 0 rgba(26, 31, 28, 0.2),
+        8px 8px 0 rgba(254, 190, 16, 0.1);
+    }
+
+    50% {
+      transform: skewY(3deg) scaleY(1.05);
+      text-shadow:
+        6px 6px 0 rgba(26, 31, 28, 0.3),
+        12px 12px 0 rgba(254, 190, 16, 0.15);
+    }
+
+    100% {
+      transform: skewY(-3deg) scaleY(1);
+      text-shadow:
+        4px 4px 0 rgba(26, 31, 28, 0.2),
+        8px 8px 0 rgba(254, 190, 16, 0.1);
+    }
+  }
+
   .hover-lift {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .hover-lift:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 2px 2px 0 #000000;
+    box-shadow: 2px 2px 0 var(--shadow);
   }
 
   .hover-lift-sm {
@@ -159,7 +221,7 @@
 
   .hover-lift-sm:hover {
     transform: translate(-1px, -1px);
-    box-shadow: 1px 1px 0 #000000;
+    box-shadow: 1px 1px 0 var(--shadow);
   }
 
   .border-3 {

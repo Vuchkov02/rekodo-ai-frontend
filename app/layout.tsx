@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Bungee, Fredoka, Righteous } from "next/font/google";
+import { Bungee, Fredoka, Righteous, Bangers } from "next/font/google";
 import "./globals.css";
 
 const bungee = Bungee({
@@ -20,6 +20,12 @@ const righteous = Righteous({
   variable: "--font-righteous"
 });
 
+const bangers = Bangers({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-bangers"
+});
+
 export const metadata: Metadata = {
   title: "Rekodo AI - AI-Powered Playlist Generator",
   description: "Generate perfect playlists with AI-powered music recommendations",
@@ -33,7 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fredoka.variable} ${bungee.variable} ${righteous.variable} font-body`}>
+      <body className={`${fredoka.variable} ${bungee.variable} ${righteous.variable} ${bangers.variable} font-body`}>
         {children}
       </body>
     </html>

@@ -57,7 +57,7 @@ export function PromptInput({ onSubmit, isLoading = false }: PromptInputProps) {
           type="submit"
           onClick={handleSubmit}
           disabled={!prompt.trim() || isLoading}
-          className="px-8 py-4 bg-secondary text-black border-3 border-black font-accent font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:bg-primary hover:text-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_black] shadow-[2px_2px_0_black]"
+          className="px-8 py-4 bg-background-secondary text-black border-3 border-black font-accent font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:bg-background-dark hover:text-background-secondary hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_black] shadow-[2px_2px_0_black]"
           style={{ borderRadius: "12px 0 12px 0" }}
           aria-label="Generate playlist"
         >

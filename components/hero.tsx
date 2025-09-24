@@ -18,8 +18,18 @@ export function Hero({ onGeneratePlaylist, isGenerating }: HeroProps) {
               <span className="block text-black mb-2">
                 Turn Your
               </span>
-              <span className="text-primary">
-                Vibe
+              <span
+                className="text-7xl sm:text-8xl lg:text-9xl block my-4 relative"
+                style={{
+                  fontFamily: 'var(--font-bangers)',
+                  color: '#febe10',
+                  letterSpacing: '0.08em',
+                  display: 'inline-block',
+                  animation: 'vibe-wave 2.5s ease-in-out infinite',
+                  transformOrigin: 'center'
+                }}
+              >
+                VIBE
               </span>
               <span className="block text-black mt-2">
                 Into Music!
@@ -50,35 +60,6 @@ export function Hero({ onGeneratePlaylist, isGenerating }: HeroProps) {
 
         <div>
           <PromptInput onSubmit={onGeneratePlaylist} isLoading={isGenerating} />
-        </div>
-
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {[
-            {
-              title: "Smart AI",
-              desc: "Understands your exact vibe"
-            },
-            {
-              title: "Lightning Fast",
-              desc: "Playlists ready in seconds"
-            },
-            {
-              title: "Any Mood",
-              desc: "From study beats to party bangers"
-            },
-          ].map((feature) => (
-            <div
-              key={feature.title}
-              className="card text-center p-6"
-            >
-              <h3 className="font-bold text-xl text-black mb-2">
-                {feature.title}
-              </h3>
-              <p className="text-black/70 text-sm">
-                {feature.desc}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
