@@ -30,10 +30,8 @@ export function PlaylistCard({ playlist }: PlaylistCardProps) {
   return (
     <div className="group relative">
       <div className="card relative bg-white">
-        {/* Header */}
         <div className="relative h-32 bg-primary overflow-hidden">
 
-          {/* Play button */}
           <button
             className="absolute top-4 right-4 btn p-3"
             aria-label="Play playlist"
@@ -41,7 +39,6 @@ export function PlaylistCard({ playlist }: PlaylistCardProps) {
             <Play className="h-4 w-4 fill-current" />
           </button>
 
-          {/* Action buttons */}
           <div className="absolute bottom-4 right-4 flex gap-2">
             <button
               onClick={() => setIsLiked(!isLiked)}
@@ -57,16 +54,13 @@ export function PlaylistCard({ playlist }: PlaylistCardProps) {
             </button>
           </div>
 
-          {/* Title overlay */}
           <div className="absolute bottom-0 left-0 right-0 bg-black/60 p-4">
             <h3 className="text-white font-bold text-lg mb-1">{playlist.name}</h3>
             <p className="text-white/80 text-xs line-clamp-1">{playlist.description}</p>
           </div>
         </div>
 
-        {/* Content */}
         <div className="p-4 space-y-4">
-          {/* Stats */}
           <div className="flex items-center justify-between text-xs">
             <div className="flex items-center gap-4 text-black/60">
               <span className="flex items-center gap-1">
@@ -92,7 +86,6 @@ export function PlaylistCard({ playlist }: PlaylistCardProps) {
             </button>
           </div>
 
-          {/* Track listing */}
           {isExpanded && (
             <div className="space-y-2 max-h-64 overflow-y-auto">
               {playlist.tracks.slice(0, 8).map((track, index) => (
@@ -125,7 +118,6 @@ export function PlaylistCard({ playlist }: PlaylistCardProps) {
             </div>
           )}
 
-          {/* Quick preview when collapsed */}
           {!isExpanded && (
             <div className="space-y-1">
               {playlist.tracks.slice(0, 3).map((track, index) => (
@@ -147,7 +139,6 @@ export function PlaylistCard({ playlist }: PlaylistCardProps) {
           )}
         </div>
 
-        {/* Label */}
         <div className="absolute -top-2 -left-2">
           <div className="btn text-xs bg-secondary text-black">
             Fresh!

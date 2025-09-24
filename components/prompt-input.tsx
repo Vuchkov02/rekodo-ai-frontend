@@ -28,7 +28,6 @@ export function PromptInput({ onSubmit, isLoading = false }: PromptInputProps) {
 
   return (
     <div className="w-full max-w-4xl mx-auto">
-      {/* Main input container */}
       <div className="card p-6 mb-6">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -43,7 +42,6 @@ export function PromptInput({ onSubmit, isLoading = false }: PromptInputProps) {
             />
           </div>
 
-          {/* Character count */}
           <div className="text-right">
             <span className={`text-xs font-accent ${
               prompt.length > 100 ? 'text-primary' : 'text-black/40'
@@ -54,13 +52,12 @@ export function PromptInput({ onSubmit, isLoading = false }: PromptInputProps) {
         </form>
       </div>
 
-      {/* Generate button - separate from input */}
       <div className="flex justify-center mb-6">
         <button
           type="submit"
           onClick={handleSubmit}
           disabled={!prompt.trim() || isLoading}
-          className="px-8 py-4 bg-secondary text-black border-3 border-black font-accent font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:bg-primary hover:text-white hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_black] shadow-[2px_2px_0_black]"
+          className="px-8 py-4 bg-background-secondary text-black border-3 border-black font-accent font-bold disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 hover:bg-background-dark hover:text-background-secondary hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[4px_4px_0_black] shadow-[2px_2px_0_black]"
           style={{ borderRadius: "12px 0 12px 0" }}
           aria-label="Generate playlist"
         >
@@ -78,7 +75,6 @@ export function PromptInput({ onSubmit, isLoading = false }: PromptInputProps) {
         </button>
       </div>
 
-      {/* Quick suggestions */}
       <div className="flex flex-wrap gap-3 justify-center mb-6">
         <span className="text-sm font-bold text-black/60 self-center font-accent">
           Quick vibes:
@@ -96,7 +92,6 @@ export function PromptInput({ onSubmit, isLoading = false }: PromptInputProps) {
         ))}
       </div>
 
-      {/* Encouraging message */}
       <div className="text-center">
         <p className="text-sm text-black/60 font-accent">
           Be as specific or creative as you want! Every detail helps create your perfect soundtrack

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
 import { Hero } from "@/components/hero";
 import { PlaylistCard } from "@/components/playlist-card";
 import { PlaylistSkeleton } from "@/components/playlist-skeleton";
@@ -29,9 +30,11 @@ export default function Home() {
       <Header />
 
       <main>
-        <Hero onGeneratePlaylist={handleGeneratePlaylist} isGenerating={isGenerating} />
+        <Hero
+          onGeneratePlaylist={handleGeneratePlaylist}
+          isGenerating={isGenerating}
+        />
 
-        {/* Generated Playlists Section */}
         {(playlists.length > 0 || isGenerating) && (
           <section className="py-12 sm:py-20">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
@@ -46,9 +49,7 @@ export default function Home() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {isGenerating && (
-                  <PlaylistSkeleton />
-                )}
+                {isGenerating && <PlaylistSkeleton />}
                 {playlists.map((playlist) => (
                   <PlaylistCard key={playlist.id} playlist={playlist} />
                 ))}
@@ -57,38 +58,7 @@ export default function Home() {
           </section>
         )}
 
-        {/* Empty State */}
-        {playlists.length === 0 && !isGenerating && (
-          <section className="py-20">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-              <div className="text-center">
-                <div className="inline-flex items-center justify-center w-24 h-24 bg-primary panel mb-6">
-                  <svg
-                    className="w-12 h-12 text-white"
-                    fill="none"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-black mb-4">
-                  Ready to discover your new favorite songs?
-                </h3>
-                <p className="text-black/60 max-w-md mx-auto">
-                  Tell me about your mood, activity, or favorite genre and I'll create the perfect soundtrack
-                </p>
-              </div>
-            </div>
-          </section>
-        )}
 
-        {/* How It Works */}
         <section id="how-it-works" className="py-20">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="text-center mb-16">
@@ -101,27 +71,29 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Steps */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {[
                 {
                   step: "1",
                   title: "Tell Me Your Vibe",
-                  description: "Describe your mood, activity, or music preference",
+                  description:
+                    "Describe your mood, activity, or music preference",
                 },
                 {
                   step: "2",
                   title: "AI Magic Happens",
-                  description: "I analyze millions of songs to find your perfect matches",
+                  description:
+                    "I analyze millions of songs to find your perfect matches",
                 },
                 {
                   step: "3",
                   title: "Enjoy Your Playlist",
-                  description: "Get a personalized playlist ready to play instantly",
+                  description:
+                    "Get a personalized playlist ready to play instantly",
                 },
               ].map((panel) => (
                 <div key={panel.step} className="panel relative">
-                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-primary text-white flex items-center justify-center font-bold text-xl panel">
+                  <div className="absolute -top-4 -left-4 w-12 h-12 bg-background-secondary text-black flex items-center justify-center font-bold text-xl panel">
                     {panel.step}
                   </div>
 
@@ -138,47 +110,10 @@ export default function Home() {
               ))}
             </div>
 
-            {/* Examples */}
-            <div className="mt-16 text-center">
-              <h3 className="text-xl font-bold text-black mb-6">
-                Try these example prompts:
-              </h3>
-              <div className="flex flex-wrap justify-center gap-4">
-                {[
-                  "Chill vibes for a rainy Sunday",
-                  "Epic workout energy",
-                  "Study focus beats",
-                  "Road trip sing-alongs",
-                  "Dancing in my room"
-                ].map((example) => (
-                  <div
-                    key={example}
-                    className="btn px-4 py-2 text-sm cursor-pointer"
-                  >
-                    "{example}"
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </section>
 
-        {/* Footer */}
-        <footer className="relative py-8 border-t-3 border-black bg-white" style={{borderRadius: "16px 0 0 0"}}>
-          {/* Orange progress bar - always visible */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-secondary" />
-
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-            <div className="text-center">
-              <p className="text-black/60 font-medium font-accent">
-                © 2024 Rekodo AI • Made with love and code
-              </p>
-              <p className="text-black/40 text-sm mt-2 font-accent">
-                Powered by AI magic
-              </p>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </div>
   );
